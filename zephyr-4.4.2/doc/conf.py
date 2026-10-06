@@ -135,6 +135,7 @@ else:
 
 pygments_style = "sphinx"
 highlight_language = "none"
+language = "ar"
 
 todo_include_todos = False
 

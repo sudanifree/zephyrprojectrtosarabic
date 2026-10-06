@@ -1,6 +1,6 @@
 .. _connectivity:
 
-Connectivity
+الاتصال
 ############
 
 .. toctree::

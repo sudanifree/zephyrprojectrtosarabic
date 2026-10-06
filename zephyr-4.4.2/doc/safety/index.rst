@@ -1,10 +1,10 @@
 .. _safety_section:
 
-Safety
-######
+السلامة
+#######
 
-These documents describe the processes, developer guidelines and requirements
-for ensuring safety is addressed within the Zephyr project.
+تشرح هذه الوثائق العمليات وإرشادات المطورين والمتطلبات اللازمة لمراعاة
+السلامة ضمن مشروع Zephyr.
 
 .. toctree::
    :maxdepth: 1

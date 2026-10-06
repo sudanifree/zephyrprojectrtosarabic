@@ -1,10 +1,10 @@
 .. _security_section:
 
-Security
+الأمان
 ########
 
-These documents describe the requirements, processes, and developer guidelines
-for ensuring security is addressed within the Zephyr project.
+تشرح هذه الوثائق المتطلبات والعمليات وإرشادات المطورين اللازمة لمراعاة
+الأمان ضمن مشروع Zephyr.
 
 .. toctree::
    :maxdepth: 1

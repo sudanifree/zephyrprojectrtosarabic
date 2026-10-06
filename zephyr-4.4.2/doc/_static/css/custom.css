@@ -310,6 +310,100 @@ a.internal:visited code.literal {
     color: var(--highlight-default-color);
 }
 
+/* Arabic pages use RTL layout while keeping code and technical identifiers LTR. */
+html[lang="ar"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+html[lang="ar"] .wy-nav-side {
+    left: auto;
+    right: 0;
+}
+
+html[lang="ar"] .wy-nav-content-wrap {
+    margin-left: 0;
+    margin-right: 300px;
+}
+
+html[lang="ar"] .rst-content pre,
+html[lang="ar"] .rst-content code,
+html[lang="ar"] .rst-content tt,
+html[lang="ar"] .highlight,
+html[lang="ar"] .literal-block-wrapper {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="ar"] .rst-content code,
+html[lang="ar"] .rst-content tt {
+    unicode-bidi: isolate;
+}
+
+html[lang="ar"] .persona-link > i,
+html[lang="ar"] .cta-text > i,
+html[lang="ar"] .reference-arrow {
+    transform: scaleX(-1);
+}
+
+html[lang="ar"] .landing-watermark {
+    right: auto;
+    left: 1.5rem;
+}
+
+html[lang="ar"] .landing-card .card-description {
+    padding-right: 0;
+    padding-left: 5rem;
+}
+
+html[lang="ar"] .persona-card .watermark {
+    right: auto;
+    left: -1.5rem;
+}
+
+html[lang="ar"] .persona-link > i {
+    margin-right: 0;
+    margin-left: 0.6rem;
+}
+
+html[lang="ar"] .cta-text {
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    html[lang="ar"] .wy-nav-side {
+        left: auto;
+        right: -300px;
+    }
+
+    html[lang="ar"] .wy-nav-side.shift {
+        left: auto;
+        right: 0;
+    }
+
+    html[lang="ar"] .wy-nav-content-wrap {
+        margin-right: 0;
+    }
+
+    html[lang="ar"] .wy-nav-content-wrap.shift {
+        left: auto;
+        right: 300px;
+    }
+
+    html[lang="ar"] .persona-card .watermark {
+        right: auto;
+        left: 1rem;
+    }
+
+    html[lang="ar"] .cta-text {
+        margin-right: 0;
+        padding-right: 0;
+    }
+}
+
 .highlight .c  /* Comment */,
 .highlight .c1 /* Comment.Single */,
 .highlight .cm /* Comment.Multiline */,

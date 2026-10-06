@@ -1,7 +1,7 @@
 .. _developing_with_zephyr:
 
-Developing with Zephyr
-######################
+التطوير باستخدام Zephyr
+#######################
 
 .. toctree::
    :maxdepth: 1

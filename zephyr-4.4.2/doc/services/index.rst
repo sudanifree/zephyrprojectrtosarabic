@@ -1,7 +1,7 @@
 .. _os_services:
 
-OS Services
-###########
+خدمات نظام التشغيل
+##################
 
 .. toctree::
    :maxdepth: 1

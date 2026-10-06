@@ -1,6 +1,6 @@
 .. _kernel:
 
-Kernel
+النواة
 ######
 
 .. toctree::

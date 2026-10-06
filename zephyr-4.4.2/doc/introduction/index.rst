@@ -1,14 +1,14 @@
 .. _introducing_zephyr:
 
-Introduction
+مقدمة
 ############
 
-The Zephyr OS is based on a small-footprint kernel designed for use on
-resource-constrained and embedded systems: from simple embedded environmental
-sensors and LED wearables to sophisticated embedded controllers, smart
-watches, and IoT wireless applications.
+يعتمد نظام Zephyr على نواة صغيرة الحجم، صُممت للأنظمة المضمنة ومحدودة الموارد؛
+من المستشعرات البيئية البسيطة والأجهزة القابلة للارتداء المزودة بمصابيح LED،
+إلى وحدات التحكم المضمنة المتقدمة والساعات الذكية وتطبيقات إنترنت الأشياء
+اللاسلكية.
 
-The Zephyr kernel supports multiple architectures, including:
+تدعم نواة Zephyr معماريات متعددة، منها:
 
  - ARCv2 (EM and HS) and ARCv3 (HS6X)
  - ARMv6-M, ARMv7-M, and ARMv8-M (Cortex-M)
@@ -22,175 +22,157 @@ The Zephyr kernel supports multiple architectures, including:
  - SPARC V8
  - Tensilica Xtensa
 
-The full list of supported boards based on these architectures can be found :ref:`here <boards>`.
+يمكنك الاطلاع على القائمة الكاملة للوحات المدعومة بهذه المعماريات :ref:`هنا <boards>`.
 
-In the context of the Zephyr OS, a :term:`subsystem` refers to a logically distinct
-part of the operating system that handles specific functionality or provides
-certain services. Subsystems can include components such as networking,
-file systems, device driver classes, power management, and communication protocols,
-among others. Each subsystem is designed to be modular and can be configured,
-customized, and extended to meet the requirements of different embedded
-applications.
+في نظام Zephyr، يشير مصطلح :term:`النظام الفرعي <subsystem>` إلى جزء مستقل
+منطقيًا يتولى وظيفة محددة أو يوفر خدمات معينة. وقد تشمل الأنظمة الفرعية
+الشبكات وأنظمة الملفات وفئات مشغلات الأجهزة وإدارة الطاقة وبروتوكولات
+الاتصال وغيرها. صُمم كل نظام فرعي ليكون معياريًا وقابلًا للتهيئة والتخصيص
+والتوسعة لتلبية احتياجات التطبيقات المضمنة المختلفة.
 
-Licensing
+الترخيص
 *********
 
-Zephyr is permissively licensed using the `Apache 2.0 license`_
-(as found in the ``LICENSE`` file in the
-project's `GitHub repo`_).  There are some
-imported or reused components of the Zephyr project that use other licensing,
-as described in :ref:`Zephyr_Licensing`.
+يُوزع Zephyr بموجب `ترخيص Apache 2.0`_ المتساهل، كما هو موضح في ملف
+``LICENSE`` ضمن `مستودع المشروع على GitHub`_. وتستخدم بعض المكونات المستوردة
+أو المعاد استخدامها تراخيص أخرى، كما هو موضح في :ref:`Zephyr_Licensing`.
 
-.. _Apache 2.0 license:
+.. _ترخيص Apache 2.0:
    https://github.com/zephyrproject-rtos/zephyr/blob/main/LICENSE
 
-.. _GitHub repo: https://github.com/zephyrproject-rtos/zephyr
+.. _مستودع المشروع على GitHub: https://github.com/zephyrproject-rtos/zephyr
 
 
-Distinguishing Features
+الميزات الرئيسية
 ***********************
 
-Zephyr offers a large and ever growing number of features including:
+يوفر Zephyr مجموعة واسعة ومتنامية من الميزات، منها:
 
-**Extensive suite of Kernel services**
-   Zephyr offers a number of familiar services for development:
+**مجموعة متكاملة من خدمات النواة**
+   يوفر Zephyr خدمات مألوفة لتطوير التطبيقات:
 
-   * *Multi-threading Services* for cooperative, priority-based,
-     non-preemptive, and preemptive threads with optional round robin
-     time-slicing. Includes POSIX pthreads compatible API support.
+   * *خدمات تعدد الخيوط*: خيوط تعاونية أو قائمة على الأولوية، غير استباقية أو
+     استباقية، مع إمكانية تقسيم الوقت بأسلوب التناوب. وتتضمن دعم واجهة
+     متوافقة مع POSIX pthreads.
 
-   * *Interrupt Services* for compile-time registration of interrupt handlers.
+   * *خدمات المقاطعات*: تسجيل معالجات المقاطعات أثناء الترجمة.
 
-   * *Memory Allocation Services* for dynamic allocation and freeing of
-     fixed-size or variable-size memory blocks.
+   * *خدمات تخصيص الذاكرة*: تخصيص كتل الذاكرة ثابتة الحجم أو متغيرة الحجم
+     وتحريرها ديناميكيًا.
 
-   * *Inter-thread Synchronization Services* for binary semaphores,
-     counting semaphores, and mutex semaphores.
+   * *خدمات التزامن بين الخيوط*: الإشارات الثنائية وإشارات العد وإشارات
+     الاستبعاد المتبادل.
 
-   * *Inter-thread Data Passing Services* for basic message queues, enhanced
-     message queues, and byte streams.
+   * *خدمات تمرير البيانات بين الخيوط*: طوابير الرسائل الأساسية والمتقدمة
+     وتدفقات البايتات.
 
-   * *Power Management Services* such as overarching, application or
-     policy-defined, System Power Management and fine-grained, driver-defined,
-     Device Power Management.
+   * *خدمات إدارة الطاقة*: إدارة طاقة النظام على مستوى النظام أو التطبيق أو
+     السياسات، وإدارة طاقة الأجهزة على مستوى دقيق تحدده المشغلات.
 
-**Multiple Scheduling Algorithms**
-   Zephyr provides a comprehensive set of thread scheduling choices:
+**خوارزميات جدولة متعددة**
+   يوفر Zephyr خيارات شاملة لجدولة الخيوط:
 
-   * Cooperative and Preemptive Scheduling
-   * Earliest Deadline First (EDF)
-   * Meta IRQ scheduling implementing "interrupt bottom half" or "tasklet"
-     behavior
-   * Timeslicing: Enables time slicing between preemptible threads of equal
-     priority
-   * Multiple queuing strategies:
+   * الجدولة التعاونية والاستباقية
+   * أقرب موعد نهائي أولًا (EDF)
+   * جدولة Meta IRQ لتنفيذ سلوك «النصف السفلي للمقاطعة» أو «المهمة الصغيرة»
+   * تقسيم الوقت بين الخيوط الاستباقية ذات الأولوية المتساوية
+   * استراتيجيات متعددة للطوابير:
 
-     * Simple linked-list ready queue
-     * Red/black tree ready queue
-     * Traditional multi-queue ready queue
+     * طابور جاهزية بقائمة مترابطة بسيطة
+     * طابور جاهزية بشجرة حمراء-سوداء
+     * طابور جاهزية تقليدي متعدد الطوابير
 
 .. _zephyr_intro_configurability:
 
-**Highly configurable / Modular for flexibility**
-   Allows an application to incorporate *only* the capabilities it needs as it
-   needs them, and to specify their quantity and size.
+**تهيئة مرنة وتصميم معياري**
+   يتيح للتطبيق تضمين الإمكانات التي يحتاج إليها *فقط*، مع تحديد عددها
+   وحجمها.
 
-**Cross Architecture**
-   Supports a wide variety of :ref:`supported boards<boards>` with different CPU
-   architectures and developer tools. Contributions have added support
-   for an increasing number of SoCs, platforms, and drivers.
+**دعم معماريات متعددة**
+   يدعم مجموعة واسعة من :ref:`اللوحات المدعومة<boards>` ذات معماريات المعالجات
+   وأدوات التطوير المختلفة. وأسهمت المساهمات في إضافة مزيد من أنظمة SoC
+   والمنصات والمشغلات.
 
-**Memory Protection**
-   Implements configurable architecture-specific stack-overflow protection,
-   kernel object and device driver permission tracking, and thread isolation
-   with thread-level memory protection on x86, ARC, and ARM architectures,
-   userspace, and memory domains.
+**حماية الذاكرة**
+   يوفر حماية قابلة للتهيئة من تجاوز سعة المكدس وفق المعمارية، وتتبع أذونات
+   كائنات النواة ومشغلات الأجهزة، وعزل الخيوط وحماية الذاكرة على مستوى الخيط
+   في معماريات x86 وARC وARM، إضافة إلى مساحة المستخدم ونطاقات الذاكرة.
 
-   For platforms without MMU/MPU and memory constrained devices, supports
-   combining application-specific code with a custom kernel to create a
-   monolithic image that gets loaded and executed on a system's hardware. Both
-   the application code and kernel code execute in a single shared address
-   space.
+   وفي المنصات التي لا تتوفر فيها MMU/MPU والأجهزة محدودة الذاكرة، يمكن دمج
+   شيفرة التطبيق مع نواة مخصصة لإنشاء صورة موحدة تُحمّل وتُنفذ على العتاد؛
+   حيث تعمل شيفرة التطبيق والنواة ضمن مساحة عناوين مشتركة.
 
-**Compile-time resource definition**
-   Allows system resources to be defined at compile-time, which reduces code
-   size and increases performance for resource-limited systems.
+**تعريف الموارد أثناء الترجمة**
+   يتيح تعريف موارد النظام أثناء الترجمة، مما يقلل حجم الشيفرة ويحسن الأداء
+   في الأنظمة محدودة الموارد.
 
-**Optimized Device Driver Model**
-   Provides a consistent device model for configuring the drivers that are part
-   of the platform/system and a consistent model for initializing all the
-   drivers configured into the system and allows the reuse of drivers across
-   platforms that have common devices/IP blocks.
+**نموذج مُحسّن لمشغلات الأجهزة**
+   يوفر نموذجًا موحدًا لتهيئة مشغلات المنصة والنظام وتهيئتها عند بدء التشغيل،
+   كما يتيح إعادة استخدام المشغلات بين المنصات ذات الأجهزة أو كتل IP المشتركة.
 
-**Devicetree Support**
-   Use of :ref:`devicetree <dt-guide>` to describe hardware.
-   Information from devicetree is used to create the application image.
+**دعم Devicetree**
+   استخدام :ref:`devicetree <dt-guide>` لوصف العتاد والاستفادة من معلوماته
+   عند إنشاء صورة التطبيق.
 
-**Native Networking Stack supporting multiple protocols**
-   Networking support is fully featured and optimized, including LwM2M and BSD
-   sockets compatible support.  OpenThread support (on Nordic chipsets) is also
-   provided - a mesh network designed to securely and reliably connect hundreds
-   of products around the home.
+**مكدس شبكات أصلي يدعم بروتوكولات متعددة**
+   دعم شبكات متكامل ومحسّن، بما في ذلك LwM2M والتوافق مع مقابس BSD. كما يتوفر
+   دعم OpenThread على شرائح Nordic، وهي شبكة شبكية مصممة لربط مئات المنتجات
+   المنزلية بأمان وموثوقية.
 
-**Bluetooth Low Energy 5.0 support**
-   Bluetooth 5.0 compliant (ESR10) and Bluetooth Low Energy Controller support
-   (LE Link Layer). Includes Bluetooth Mesh and a Bluetooth qualification-ready
-   Bluetooth controller.
+**دعم Bluetooth Low Energy 5.0**
+   متوافق مع Bluetooth 5.0 (ESR10)، ويدعم متحكم Bluetooth Low Energy (طبقة ربط
+   LE)، بما في ذلك Bluetooth Mesh ومتحكم جاهز لاجتياز اعتماد Bluetooth.
 
-   * Generic Access Profile (GAP) with all possible LE roles
-   * Generic Attribute Profile (GATT)
-   * Pairing support, including the Secure Connections feature from Bluetooth
-     4.2
-   * Clean HCI driver abstraction
-   * Raw HCI interface to run Zephyr as a Controller instead of a full Host
-     stack
-   * Verified with multiple popular controllers
-   * Highly configurable
+   * ملف الوصول العام (GAP) بجميع أدوار LE
+   * ملف السمات العام (GATT)
+   * دعم الاقتران، بما في ذلك ميزة Secure Connections في Bluetooth 4.2
+   * طبقة تجريد واضحة لمشغل HCI
+   * واجهة HCI خام لتشغيل Zephyr كمتحكم بدلًا من مكدس مضيف كامل
+   * تم التحقق من التوافق مع عدة متحكمات شائعة
+   * قابلية عالية للتهيئة
 
-   Mesh Support:
+   دعم الشبكات الشبكية:
 
-   * Relay, Friend Node, Low-Power Node (LPN) and GATT Proxy features
-   * Both Provisioning bearers supported (PB-ADV & PB-GATT)
-   * Highly configurable, fitting in devices with at least 16k RAM
+   * ميزات المرحّل والعقدة الصديقة والعقدة منخفضة الطاقة (LPN وGATT Proxy)
+   * دعم وسيطي التهيئة PB-ADV وPB-GATT
+   * قابلية عالية للتهيئة، ويمكن تشغيله على أجهزة بذاكرة RAM لا تقل عن 16 كيلوبايت
 
-**Native Linux, macOS, and Windows Development**
-   A command-line CMake build environment runs on popular developer OS
-   systems. A native port (:zephyr:board:`native_sim <native_sim>`) lets you build and run Zephyr as a native
-   application on Linux, aiding development and testing.
+**التطوير مباشرة على Linux وmacOS وWindows**
+   تعمل بيئة البناء المعتمدة على سطر الأوامر وCMake على أنظمة التطوير الشائعة.
+   ويتيح المنفذ الأصلي (:zephyr:board:`native_sim <native_sim>`) بناء Zephyr
+   وتشغيله كتطبيق Linux، مما يسهل التطوير والاختبار.
 
-**Virtual File System Interface with ext2, FatFs, and LittleFS Support**
-   ext2, LittleFS and FatFS support; FCB (Flash Circular Buffer) for memory constrained
-   applications.
+**واجهة نظام ملفات افتراضي**
+   دعم ext2 وLittleFS وFatFs، إضافة إلى FCB (المخزن الدائري في ذاكرة Flash)
+   للتطبيقات محدودة الذاكرة.
 
-**Powerful multi-backend logging Framework**
-   Support for log filtering, object dumping, panic mode, multiple backends
-   (memory, networking, filesystem, console, ...) and integration with the shell
-   subsystem.
+**إطار تسجيل قوي متعدد الوجهات**
+   يدعم ترشيح السجلات وعرض الكائنات ووضع الذعر ووجهات متعددة (الذاكرة والشبكة
+   ونظام الملفات ووحدة التحكم وغيرها)، مع التكامل مع النظام الفرعي للصدفة.
 
-**User friendly and full-featured Shell interface**
-   A multi-instance shell subsystem with user-friendly features such as
-   autocompletion, wildcards, coloring, metakeys (arrows, backspace, ctrl+u,
-   etc.) and history. Support for static commands and dynamic sub-commands.
+**واجهة Shell سهلة الاستخدام وغنية بالميزات**
+   نظام فرعي متعدد النسخ يوفر الإكمال التلقائي ومحارف الأنماط والألوان
+   ومفاتيح التحكم (الأسهم وBackspace وCtrl+U وغيرها) وسجل الأوامر، مع دعم
+   الأوامر الثابتة والفرعية الديناميكية.
 
-**Settings on non-volatile storage**
-   The settings subsystem gives modules a way to store persistent per-device
-   configuration and runtime state. Settings items are stored as key-value pair
-   strings.
+**إعدادات في تخزين غير متطاير**
+   يتيح النظام الفرعي للإعدادات للوحدات حفظ التهيئة الدائمة وحالة التشغيل لكل
+   جهاز. وتُخزّن عناصر الإعدادات كسلاسل من أزواج المفتاح والقيمة.
 
-**Non-volatile storage (NVS)**
-  NVS allows storage of binary blobs, strings, integers, longs, and any
-  combination of these.
+**التخزين غير المتطاير (NVS)**
+  يتيح NVS تخزين البيانات الثنائية والسلاسل والأعداد الصحيحة والأعداد الطويلة
+  وأي مزيج منها.
 
-**Native port**
-  :zephyr:board:`Native sim <native_sim>` allows running Zephyr as a Linux application with support
-  for various subsystems and networking.
+**منفذ أصلي**
+  يتيح :zephyr:board:`Native sim <native_sim>` تشغيل Zephyr كتطبيق Linux يدعم
+  أنظمة فرعية متعددة والشبكات.
 
 
 .. include:: ../../README.rst
    :start-after: start_include_here
 
 
-Fundamental Terms and Concepts
+المصطلحات والمفاهيم الأساسية
 ******************************
 
-See :ref:`glossary`
+راجع :ref:`glossary`.

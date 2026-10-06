@@ -3,7 +3,7 @@
 
 .. _zephyr-home:
 
-Zephyr Project Documentation
+وثائق مشروع Zephyr
 ############################
 
 .. raw:: html
@@ -25,26 +25,26 @@ Zephyr Project Documentation
 
 .. only:: release
 
-   .. admonition:: Welcome to Zephyr Project Documentation for version |version|.
+   .. admonition:: مرحبًا بك في وثائق مشروع Zephyr للإصدار |version|.
       :class: welcome
 
       .. raw:: html
 
          <p>
-           Use the <a href="#" onclick="openVersionSelector(); return false;">version selector</a>
-           for the documentation of other Zephyr versions.
+           استخدم <a href="#" onclick="openVersionSelector(); return false;">محدد الإصدارات</a>
+           للاطلاع على وثائق إصدارات Zephyr الأخرى.
          </p>
 
 .. only:: development
 
-   .. admonition:: Welcome to Zephyr Project Documentation for the ``main`` tree (|version|).
+   .. admonition:: مرحبًا بك في وثائق مشروع Zephyr لفرع ``main`` (|version|).
       :class: welcome
 
       .. raw:: html
 
          <p>
-           Use the <a href="#" onclick="openVersionSelector(); return false;">version selector</a>
-           for the documentation of previously released versions.
+           استخدم <a href="#" onclick="openVersionSelector(); return false;">محدد الإصدارات</a>
+           للاطلاع على وثائق الإصدارات السابقة.
          </p>
 
 .. raw:: html

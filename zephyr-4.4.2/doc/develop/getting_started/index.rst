@@ -1,29 +1,28 @@
 .. _getting_started:
 
-Getting Started Guide
+دليل البدء
 #####################
 
-Follow this guide to:
+اتبع هذا الدليل من أجل:
 
-- Set up a command-line Zephyr development environment on Ubuntu, macOS, or
-  Windows (instructions for other Linux distributions are discussed in
-  :ref:`installation_linux`)
-- Get the source code
-- Build, flash, and run a sample application
+- إعداد بيئة تطوير Zephyr باستخدام سطر الأوامر على Ubuntu أو macOS أو Windows
+  (تجد تعليمات توزيعات Linux الأخرى في :ref:`installation_linux`)
+- الحصول على الشيفرة المصدرية
+- بناء تطبيق نموذجي ورفعه وتشغيله
 
 .. _host_setup:
 
-Select and Update OS
-********************
+اختيار نظام التشغيل وتحديثه
+***************************
 
-Click the operating system you are using.
+اختر نظام التشغيل الذي تستخدمه.
 
 .. tabs::
 
    .. group-tab:: Ubuntu
 
-      This guide covers Ubuntu version 24.04 LTS and later.
-      If you are using a different Linux distribution see :ref:`installation_linux`.
+      يغطي هذا الدليل Ubuntu 24.04 LTS والإصدارات الأحدث. إذا كنت تستخدم
+      توزيعة Linux أخرى، فراجع :ref:`installation_linux`.
 
       .. code-block:: bash
 
@@ -32,29 +31,29 @@ Click the operating system you are using.
 
    .. group-tab:: macOS
 
-      On macOS Mojave or later, select *System Preferences* >
-      *Software Update*. Click *Update Now* if necessary.
+      في macOS Mojave أو إصدار أحدث، افتح *System Preferences* >
+      *Software Update*. انقر *Update Now* عند الحاجة.
 
-      On other versions, see `this Apple support topic
+      للإصدارات الأخرى، راجع `موضوع دعم Apple هذا
       <https://support.apple.com/en-us/HT201541>`_.
 
       .. note::
 
-         x86-64 macOS is not supported.
+         لا يدعم Zephyr نظام macOS بمعمارية x86-64.
 
    .. group-tab:: Windows
 
-      Select *Start* > *Settings* > *Update & Security* > *Windows Update*.
-      Click *Check for updates* and install any that are available.
+      افتح *Start* > *Settings* > *Update & Security* > *Windows Update*.
+      انقر *Check for updates* وثبّت التحديثات المتاحة.
 
 .. _install-required-tools:
 
-Install dependencies
+تثبيت التبعيات
 ********************
 
-Next, you'll install some host dependencies using your package manager.
+بعد ذلك، ثبّت بعض تبعيات النظام المضيف باستخدام مدير الحزم.
 
-The current minimum required version for the main dependencies are:
+الحد الأدنى الحالي لإصدارات التبعيات الرئيسية:
 
 .. list-table::
    :header-rows: 1
@@ -77,7 +76,7 @@ The current minimum required version for the main dependencies are:
 
       .. _install_dependencies_ubuntu:
 
-      #. Use ``apt`` to install the required dependencies:
+      #. استخدم ``apt`` لتثبيت التبعيات المطلوبة:
 
          .. code-block:: bash
 
@@ -87,10 +86,10 @@ The current minimum required version for the main dependencies are:
 
          .. note::
 
-            Due to the unavailability of ``gcc-multilib`` and ``g++-multilib`` on AArch64
-            (ARM64) systems, you may need to omit them from the list of packages to install.
+            نظرًا لعدم توفر ``gcc-multilib`` و``g++-multilib`` على أنظمة AArch64
+            (ARM64)، قد تحتاج إلى استبعادهما من قائمة الحزم.
 
-      #. Verify the versions of the main dependencies installed on your system by entering:
+      #. تحقق من إصدارات التبعيات الرئيسية المثبتة بإدخال:
 
          .. code-block:: bash
 
@@ -98,36 +97,35 @@ The current minimum required version for the main dependencies are:
             python3 --version
             dtc --version
 
-         Check those against the versions in the table in the beginning of this section.
-         Refer to the :ref:`installation_linux` page for additional information on updating
-         the dependencies manually.
+         قارن الإصدارات بالقيم الواردة في الجدول أعلاه. لمزيد من المعلومات حول
+         تحديث التبعيات يدويًا، راجع صفحة :ref:`installation_linux`.
 
    .. group-tab:: macOS
 
       .. _install_dependencies_macos:
 
-      #. Install `Homebrew <https://brew.sh/>`_:
+      #. ثبّت `Homebrew <https://brew.sh/>`_:
 
          .. code-block:: bash
 
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-      #. After the Homebrew installation script completes, follow the on-screen
-         instructions to add the Homebrew installation to the path.
+      #. بعد اكتمال تثبيت Homebrew، اتبع التعليمات الظاهرة على الشاشة لإضافة
+         مسار التثبيت إلى PATH.
 
          .. code-block:: bash
 
             (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
             source ~/.zprofile
 
-      #. Use ``brew`` to install the required dependencies:
+      #. استخدم ``brew`` لتثبيت التبعيات المطلوبة:
 
          .. code-block:: bash
 
             brew install cmake ninja gperf python3 python-tk ccache qemu dtc libmagic wget openocd
 
-      #. Add the Homebrew Python folder to the path, in order to be able to
-         execute ``python`` and ``pip`` as well ``python3`` and ``pip3``.
+      #. أضف مجلد Python الخاص بـ Homebrew إلى PATH لتتمكن من تشغيل ``python``
+         و``pip`` إلى جانب ``python3`` و``pip3``.
 
            .. code-block:: bash
 
@@ -138,46 +136,43 @@ The current minimum required version for the main dependencies are:
 
       .. note::
 
-         Due to issues finding executables, the Zephyr Project doesn't
-         currently support application flashing using the `Windows Subsystem
-         for Linux (WSL)
+         بسبب مشكلات العثور على الملفات التنفيذية، لا يدعم مشروع Zephyr حاليًا
+         رفع التطبيقات باستخدام `Windows Subsystem for Linux (WSL)
          <https://msdn.microsoft.com/en-us/commandline/wsl/install_guide>`_
          (WSL).
 
-         Therefore, we don't recommend using WSL when getting started.
+         لذلك لا نوصي باستخدام WSL عند البدء.
 
-      In modern version of Windows (10 and later) it is recommended to install the Windows Terminal
-      application from the Microsoft Store. Instructions are provided for a ``cmd.exe`` or
-      PowerShell command prompts.
+      في إصدارات Windows الحديثة (10 وما بعدها)، نوصي بتثبيت تطبيق Windows
+      Terminal من Microsoft Store. وتتوفر التعليمات لموجه أوامر ``cmd.exe`` أو
+      PowerShell.
 
-      These instructions rely on Windows' official package manager, `winget`_.
-      If using winget isn't an option, you can install dependencies from their
-      respective websites and ensure the command line tools are on your
-      :envvar:`PATH` :ref:`environment variable <env_vars>`.
+      تعتمد هذه التعليمات على مدير الحزم الرسمي في Windows، وهو `winget`_.
+      إذا تعذر استخدامه، فثبّت التبعيات من مواقعها الرسمية وتأكد من إضافة
+      أدوات سطر الأوامر إلى متغير البيئة :envvar:`PATH`
+      :ref:`environment variable <env_vars>`.
 
       |p|
 
       .. _install_dependencies_windows:
 
-      #. In modern Windows versions, winget is already pre-installed by default.
-         You can verify that this is the case by typing ``winget`` in a terminal
-         window. If that fails, you can then `install winget`_.
+      #. يكون winget مثبتًا مسبقًا في إصدارات Windows الحديثة. تحقق من ذلك
+         بكتابة ``winget`` في نافذة طرفية. إذا لم يعمل، يمكنك `تثبيت winget`_.
 
-      #. Open a Command Prompt (``cmd.exe``) or PowerShell terminal window.
-         To do so, press the Windows key, type ``cmd.exe`` or PowerShell and
-         click on the result.
+      #. افتح نافذة موجه الأوامر (``cmd.exe``) أو PowerShell. اضغط مفتاح
+         Windows، واكتب ``cmd.exe`` أو PowerShell، ثم اختر النتيجة.
 
-      #. Use ``winget`` to install the required dependencies:
+      #. استخدم ``winget`` لتثبيت التبعيات المطلوبة:
 
          .. code-block:: bat
 
             winget install Kitware.CMake Ninja-build.Ninja oss-winget.gperf Python.Python.3.12 Git.Git oss-winget.dtc wget 7zip.7zip
 
-      #. Close the terminal window.
+      #. أغلق نافذة الطرفية.
 
       .. note::
 
-         You may need to add the 7zip installation folder to your ``PATH``.
+         قد تحتاج إلى إضافة مجلد تثبيت 7zip إلى ``PATH``.
 
 
 .. _winget: https://learn.microsoft.com/en-us/windows/package-manager/
@@ -188,14 +183,13 @@ The current minimum required version for the main dependencies are:
 .. _install_py_requirements:
 .. _gs_python_deps:
 
-Get Zephyr and install Python dependencies
+الحصول على Zephyr وتثبيت تبعيات Python
 ******************************************
 
-Next, clone Zephyr and its :ref:`modules <modules>` into a new :ref:`west
-<west>` workspace. In the following instructions the name :file:`zephyrproject`
-is used for the workspace, however in practice its name and location can be freely
-chosen. You'll also install Zephyr's additional Python dependencies in a
-`Python virtual environment`_.
+بعد ذلك، استنسخ Zephyr و:ref:`وحداته <modules>` إلى مساحة عمل جديدة في
+:ref:`west <west>`. تستخدم التعليمات التالية الاسم :file:`zephyrproject`
+لمساحة العمل، لكن يمكنك اختيار الاسم والموقع المناسبين. وستثبت أيضًا تبعيات
+Python الإضافية الخاصة بـ Zephyr في `بيئة Python افتراضية`_.
 
 .. _Python virtual environment: https://docs.python.org/3/library/venv.html
 
@@ -203,34 +197,32 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
 
    .. group-tab:: Ubuntu
 
-      #. Create a new virtual environment:
+      #. أنشئ بيئة افتراضية جديدة:
 
          .. code-block:: bash
 
             python3 -m venv ~/zephyrproject/.venv
 
-      #. Activate the virtual environment:
+      #. فعّل البيئة الافتراضية:
 
          .. code-block:: bash
 
             source ~/zephyrproject/.venv/bin/activate
 
-         Once activated your shell will be prefixed with ``(.venv)``. The
-         virtual environment can be deactivated at any time by running
-         ``deactivate``.
+         بعد تفعيلها، سيظهر ``(.venv)`` في بداية سطر الأوامر. يمكنك إلغاء
+         تفعيل البيئة الافتراضية في أي وقت بتشغيل ``deactivate``.
 
          .. note::
 
-            Remember to activate the virtual environment every time you
-            start working.
+            تذكر تفعيل البيئة الافتراضية في كل مرة تبدأ فيها العمل.
 
-      #. Install west:
+      #. ثبّت west:
 
          .. code-block:: bash
 
             pip install west
 
-      #. Get the Zephyr source code:
+      #. احصل على الشيفرة المصدرية لـ Zephyr:
 
          .. only:: not release
 
@@ -252,15 +244,14 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
                cd ~/zephyrproject
                west update
 
-      #. Export a :ref:`Zephyr CMake package <cmake_pkg>`. This allows CMake to
-         automatically load boilerplate code required for building Zephyr
-         applications.
+      #. صدّر :ref:`حزمة Zephyr لـ CMake <cmake_pkg>`. يسمح ذلك لـ CMake
+         بتحميل الشيفرة التمهيدية المطلوبة لبناء تطبيقات Zephyr تلقائيًا.
 
          .. code-block:: bash
 
             west zephyr-export
 
-      #. Install Python dependencies using ``west packages``.
+      #. ثبّت تبعيات Python باستخدام ``west packages``.
 
          .. code-block:: bash
 
@@ -268,38 +259,36 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
 
          .. note::
 
-            This could downgrade or upgrade west itself.
+            قد يؤدي ذلك إلى ترقية west نفسه أو الرجوع إلى إصدار أقدم منه.
 
    .. group-tab:: macOS
 
-      #. Create a new virtual environment:
+      #. أنشئ بيئة افتراضية جديدة:
 
          .. code-block:: bash
 
             python3 -m venv ~/zephyrproject/.venv
 
-      #. Activate the virtual environment:
+      #. فعّل البيئة الافتراضية:
 
          .. code-block:: bash
 
             source ~/zephyrproject/.venv/bin/activate
 
-         Once activated your shell will be prefixed with ``(.venv)``. The
-         virtual environment can be deactivated at any time by running
-         ``deactivate``.
+         بعد تفعيلها، سيظهر ``(.venv)`` في بداية سطر الأوامر. يمكنك إلغاء
+         تفعيل البيئة الافتراضية في أي وقت بتشغيل ``deactivate``.
 
          .. note::
 
-            Remember to activate the virtual environment every time you
-            start working.
+            تذكر تفعيل البيئة الافتراضية في كل مرة تبدأ فيها العمل.
 
-      #. Install west:
+      #. ثبّت west:
 
          .. code-block:: bash
 
             pip install west
 
-      #. Get the Zephyr source code:
+      #. احصل على الشيفرة المصدرية لـ Zephyr:
 
          .. code-block:: bash
 
@@ -307,15 +296,14 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
             cd ~/zephyrproject
             west update
 
-      #. Export a :ref:`Zephyr CMake package <cmake_pkg>`. This allows CMake to
-         automatically load boilerplate code required for building Zephyr
-         applications.
+      #. صدّر :ref:`حزمة Zephyr لـ CMake <cmake_pkg>`. يسمح ذلك لـ CMake
+         بتحميل الشيفرة التمهيدية المطلوبة لبناء تطبيقات Zephyr تلقائيًا.
 
          .. code-block:: bash
 
             west zephyr-export
 
-      #. Install Python dependencies using ``west packages``.
+      #. ثبّت تبعيات Python باستخدام ``west packages``.
 
          .. code-block:: bash
 
@@ -323,13 +311,13 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
 
          .. note::
 
-            This could downgrade or upgrade west itself.
+            قد يؤدي ذلك إلى ترقية west نفسه أو الرجوع إلى إصدار أقدم منه.
 
    .. group-tab:: Windows
 
-      #. Open a ``cmd.exe`` or PowerShell terminal window **as a regular user**
+      #. افتح نافذة طرفية ``cmd.exe`` أو PowerShell **بصلاحيات مستخدم عادي**.
 
-      #. Create a new virtual environment:
+      #. أنشئ بيئة افتراضية جديدة:
 
          .. tabs::
 
@@ -343,12 +331,12 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
                cd $Env:HOMEPATH
                python -m venv zephyrproject\.venv
 
-      #. Activate the virtual environment:
+      #. فعّل البيئة الافتراضية:
 
          .. note::
 
-            Python's virtual environment activation in PowerShell requires
-            running a script itself, which needs to be allowed.
+            يتطلب تفعيل البيئة الافتراضية لـ Python في PowerShell تشغيل
+            برنامج نصي؛ وقد تحتاج إلى السماح بذلك.
 
             .. code-block:: powershell
 
@@ -364,22 +352,20 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
 
                zephyrproject\.venv\Scripts\Activate.ps1
 
-         Once activated your shell will be prefixed with ``(.venv)``. The
-         virtual environment can be deactivated at any time by running
-         ``deactivate``.
+         بعد تفعيلها، سيظهر ``(.venv)`` في بداية سطر الأوامر. يمكنك إلغاء
+         تفعيل البيئة الافتراضية في أي وقت بتشغيل ``deactivate``.
 
          .. note::
 
-            Remember to activate the virtual environment every time you
-            start working.
+            تذكر تفعيل البيئة الافتراضية في كل مرة تبدأ فيها العمل.
 
-      #. Install west:
+      #. ثبّت west:
 
          .. code-block:: bat
 
             pip install west
 
-      #. Get the Zephyr source code:
+      #. احصل على الشيفرة المصدرية لـ Zephyr:
 
          .. code-block:: bat
 
@@ -387,15 +373,14 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
             cd zephyrproject
             west update
 
-      #. Export a :ref:`Zephyr CMake package <cmake_pkg>`. This allows CMake to
-         automatically load boilerplate code required for building Zephyr
-         applications.
+      #. صدّر :ref:`حزمة Zephyr لـ CMake <cmake_pkg>`. يسمح ذلك لـ CMake
+         بتحميل الشيفرة التمهيدية المطلوبة لبناء تطبيقات Zephyr تلقائيًا.
 
          .. code-block:: bat
 
             west zephyr-export
 
-      #. Install Python dependencies using ``west packages``.
+      #. ثبّت تبعيات Python باستخدام ``west packages``.
 
          .. tabs::
 
@@ -409,25 +394,24 @@ chosen. You'll also install Zephyr's additional Python dependencies in a
 
          .. note::
 
-            This could downgrade or upgrade west itself.
+            قد يؤدي ذلك إلى ترقية west نفسه أو الرجوع إلى إصدار أقدم منه.
 
-Install the Zephyr SDK
+تثبيت Zephyr SDK
 **********************
 
-The :ref:`Zephyr Software Development Kit (SDK) <toolchain_zephyr_sdk>`
-contains toolchains for each of Zephyr's supported architectures, which
-include a compiler, assembler, linker and other programs required to build
-Zephyr applications.
+تحتوي :ref:`حزمة تطوير البرمجيات لـ Zephyr (SDK) <toolchain_zephyr_sdk>` على
+سلاسل أدوات لكل معمارية يدعمها Zephyr، وتشمل مترجمًا ومجمّعًا ورابطًا
+وبرامج أخرى لازمة لبناء تطبيقات Zephyr.
 
-It also contains additional host tools, such as custom QEMU and OpenOCD builds
-that are used to emulate, flash and debug Zephyr applications.
+كما تتضمن أدوات إضافية للنظام المضيف، مثل إصدارات مخصصة من QEMU وOpenOCD
+تُستخدم لمحاكاة تطبيقات Zephyr ورفعها وتصحيحها.
 
 
 .. tabs::
 
    .. group-tab:: Ubuntu
 
-      Install the Zephyr SDK using the ``west sdk install``.
+      ثبّت Zephyr SDK باستخدام الأمر ``west sdk install``.
 
          .. code-block:: bash
 
@@ -436,13 +420,12 @@ that are used to emulate, flash and debug Zephyr applications.
 
       .. tip::
 
-          Using the command options, you can specify the SDK installation destination
-          and which architecture of toolchains to install.
-          See ``west sdk install --help`` for details.
+          يمكنك تحديد موقع تثبيت SDK والمعماريات المطلوب تثبيت سلاسل أدواتها
+          باستخدام خيارات الأمر. راجع ``west sdk install --help`` للتفاصيل.
 
    .. group-tab:: macOS
 
-      Install the Zephyr SDK using the ``west sdk install``.
+      ثبّت Zephyr SDK باستخدام الأمر ``west sdk install``.
 
          .. code-block:: bash
 
@@ -451,13 +434,12 @@ that are used to emulate, flash and debug Zephyr applications.
 
       .. tip::
 
-          Using the command options, you can specify the SDK installation destination
-          and which architecture of toolchains to install.
-          See ``west sdk install --help`` for details.
+          يمكنك تحديد موقع تثبيت SDK ومعماريات سلاسل الأدوات المطلوب تثبيتها
+          باستخدام خيارات الأمر. راجع ``west sdk install --help`` للتفاصيل.
 
    .. group-tab:: Windows
 
-      Install the Zephyr SDK using the ``west sdk install``.
+      ثبّت Zephyr SDK باستخدام الأمر ``west sdk install``.
 
          .. tabs::
 
@@ -473,31 +455,30 @@ that are used to emulate, flash and debug Zephyr applications.
 
       .. tip::
 
-          Using the command options, you can specify the SDK installation destination
-          and which architecture of toolchains to install.
-          See ``west sdk install --help`` for details.
+          يمكنك تحديد موقع تثبيت SDK ومعماريات سلاسل الأدوات المطلوب تثبيتها
+          باستخدام خيارات الأمر. راجع ``west sdk install --help`` للتفاصيل.
 
 .. note::
 
-    If you want to install Zephyr SDK without using the ``west sdk`` command,
-    please see :ref:`toolchain_zephyr_sdk_install`.
+    إذا أردت تثبيت Zephyr SDK من دون الأمر ``west sdk``، فراجع
+    :ref:`toolchain_zephyr_sdk_install`.
 
 .. _getting_started_run_sample:
 
-Build the Blinky Sample
+بناء مثال Blinky
 ***********************
 
 .. note::
 
-   :zephyr:code-sample:`blinky` is compatible with most, but not all, :ref:`boards`. If your board
-   does not meet Blinky's :ref:`blinky-sample-requirements`, then
-   :zephyr:code-sample:`hello_world` is a good alternative.
+   يتوافق :zephyr:code-sample:`blinky` مع معظم :ref:`اللوحات <boards>` وليس
+   كلها. إذا لم تستوفِ لوحتك :ref:`متطلبات Blinky <blinky-sample-requirements>`،
+   فمثال :zephyr:code-sample:`hello_world` بديل مناسب.
 
-   If you are unsure what name west uses for your board, ``west boards``
-   can be used to obtain a list of all boards Zephyr supports.
+   إذا لم تكن متأكدًا من الاسم الذي يستخدمه west للوحة، فشغّل ``west boards``
+   لعرض قائمة اللوحات التي يدعمها Zephyr.
 
-Build the :zephyr:code-sample:`blinky` with :ref:`west build <west-building>`, changing
-``<your-board-name>`` appropriately for your board:
+ابنِ مثال :zephyr:code-sample:`blinky` باستخدام :ref:`west build <west-building>`,
+واستبدل ``<your-board-name>`` باسم لوحتك:
 
 .. tabs::
 
@@ -529,29 +510,25 @@ Build the :zephyr:code-sample:`blinky` with :ref:`west build <west-building>`, c
             cd $Env:HOMEPATH\zephyrproject\zephyr
             west build -p always -b <your-board-name> samples\basic\blinky
 
-The ``-p always`` option forces a pristine build, and is recommended for new
-users. Users may also use the ``-p auto`` option, which will use
-heuristics to determine if a pristine build is required, such as when building
-another sample.
+يفرض الخيار ``-p always`` بناءً نظيفًا، ونوصي به للمستخدمين الجدد. ويمكن
+استخدام ``-p auto`` أيضًا، إذ يحدد تلقائيًا عند الحاجة إلى بناء نظيف، مثل
+الانتقال إلى بناء مثال آخر.
 
 .. note::
 
-   A board may contain one or multiple SoCs, Also, each SoC may contain one or
-   more CPU clusters.
-   When building for such boards it is necessary to specify the SoC or CPU
-   cluster for which the sample must be built.
-   For example to build :zephyr:code-sample:`blinky` for the ``cpuapp`` core on
-   the :zephyr:board:`nrf5340dk` the board must be provided as:
-   ``nrf5340dk/nrf5340/cpuapp``. See also :ref:`board_terminology` for more
-   details.
+   قد تضم اللوحة نظام SoC واحدًا أو أكثر، وقد يضم كل نظام SoC عنقودًا واحدًا
+   أو أكثر من أنوية المعالج. عند البناء لهذه اللوحات، حدد نظام SoC أو عنقود
+   المعالج المطلوب. مثلًا، لبناء :zephyr:code-sample:`blinky` للنواة ``cpuapp``
+   على :zephyr:board:`nrf5340dk`، استخدم اسم اللوحة
+   ``nrf5340dk/nrf5340/cpuapp``. راجع :ref:`board_terminology` لمزيد من التفاصيل.
 
-Flash the Sample
-****************
+رفع المثال إلى اللوحة
+*********************
 
-Connect your board, usually via USB, and turn it on if there's a power switch.
-If in doubt about what to do, check your board's page in :ref:`boards`.
+صِل لوحتك، عادةً عبر USB، وشغّلها إن كان بها مفتاح طاقة. إذا لم تكن متأكدًا
+مما ينبغي فعله، فراجع صفحة لوحتك في :ref:`اللوحات <boards>`.
 
-Then flash the sample using :ref:`west flash <west-flashing>`:
+بعد ذلك، ارفع المثال باستخدام :ref:`west flash <west-flashing>`:
 
 .. code-block:: shell
 
@@ -559,15 +536,13 @@ Then flash the sample using :ref:`west flash <west-flashing>`:
 
 .. note::
 
-    You may need to install additional :ref:`host tools <flash-debug-host-tools>`
-    required by your board. The ``west flash`` command will print an error if any
-    required dependencies are missing.
+    قد تحتاج إلى تثبيت :ref:`أدوات النظام المضيف <flash-debug-host-tools>`
+    الإضافية المطلوبة للوحة. سيعرض الأمر ``west flash`` خطأً عند غياب أي تبعية.
 
 .. note::
 
-    When using Linux, you may need to configure udev rules the first time
-    of using a debug probe.
-    Please also see :ref:`setting-udev-rules`.
+    عند استخدام Linux، قد تحتاج إلى إعداد قواعد udev عند استخدام أداة التصحيح
+    للمرة الأولى. راجع أيضًا :ref:`setting-udev-rules`.
 
 If you're using blinky, the LED will start to blink as shown in this figure:
 
@@ -575,82 +550,80 @@ If you're using blinky, the LED will start to blink as shown in this figure:
    :width: 400px
    :name: reelboard-blinky
 
-   Phytec :zephyr:board:`reel_board <reel_board>` running blinky
+   تشغيل blinky على لوحة Phytec :zephyr:board:`reel_board <reel_board>`
 
-Next Steps
-**********
+الخطوات التالية
+***************
 
-Here are some next steps for exploring Zephyr:
+إليك بعض الخطوات التالية لاستكشاف Zephyr:
 
 * Try other :zephyr:code-sample-category:`samples`
-* Learn about :ref:`application` and the :ref:`west <west>` tool
-* Find out about west's :ref:`flashing and debugging <west-build-flash-debug>`
-  features, or more about :ref:`flashing_and_debugging` in general
-* Check out :ref:`beyond-GSG` for additional setup alternatives and ideas
-* Discover :ref:`project-resources` for getting help from the Zephyr
-  community
+* تعرّف على :ref:`التطبيقات <application>` وأداة :ref:`west <west>`
+* استكشف ميزات :ref:`الرفع والتصحيح <west-build-flash-debug>` في west، أو
+  اقرأ المزيد عن :ref:`الرفع والتصحيح <flashing_and_debugging>`
+* راجع :ref:`beyond-GSG` للاطلاع على خيارات وأفكار إضافية للإعداد
+* استكشف :ref:`project-resources` للحصول على المساعدة من مجتمع Zephyr
 
 .. _troubleshooting_installation:
 
-Troubleshooting Installation
-****************************
+استكشاف مشكلات التثبيت وإصلاحها
+*******************************
 
-Here are some tips for fixing some issues related to the installation process.
+فيما يلي نصائح لمعالجة بعض المشكلات المتعلقة بعملية التثبيت.
 
 .. _toolchain_zephyr_sdk_update:
 
-Double Check the Zephyr SDK Variables When Updating
+تحقق من متغيرات Zephyr SDK عند التحديث
 ===================================================
 
-When updating Zephyr SDK, check whether the :envvar:`ZEPHYR_TOOLCHAIN_VARIANT`
-or :envvar:`ZEPHYR_SDK_INSTALL_DIR` environment variables are already set.
-See :ref:`gs_toolchain_update` for more information.
+عند تحديث Zephyr SDK، تحقق مما إذا كان متغير البيئة
+:envvar:`ZEPHYR_TOOLCHAIN_VARIANT` أو :envvar:`ZEPHYR_SDK_INSTALL_DIR`
+مضبوطًا مسبقًا. راجع :ref:`gs_toolchain_update` لمزيد من المعلومات.
 
-For more information about these environment variables in Zephyr, see :ref:`env_vars_important`.
+لمزيد من المعلومات عن متغيرات البيئة هذه في Zephyr، راجع :ref:`env_vars_important`.
 
 .. _help:
 
-Asking for Help
+طلب المساعدة
 ***************
 
-You can ask for help on a mailing list or on Discord. Please send bug reports and
-feature requests to GitHub.
+يمكنك طلب المساعدة عبر قائمة بريدية أو Discord. أرسل تقارير الأخطاء وطلبات
+الميزات إلى GitHub.
 
-* **Mailing Lists**: users@lists.zephyrproject.org is usually the right list to
-  ask for help. `Search archives and sign up here`_.
-* **Discord**: You can join with this `Discord invite`_.
-* **GitHub**: Use `GitHub issues`_ for bugs and feature requests.
+* **القوائم البريدية**: عادةً ما تكون users@lists.zephyrproject.org القائمة
+  المناسبة لطلب المساعدة. `ابحث في الأرشيف واشترك هنا`_.
+* **Discord**: يمكنك الانضمام عبر `دعوة Discord`_.
+* **GitHub**: استخدم `مشكلات GitHub`_ للأخطاء وطلبات الميزات.
 
-How to Ask
-==========
+كيفية طرح السؤال
+================
 
 .. important::
 
-   Please search this documentation and the mailing list archives first. Your
-   question may have an answer there.
+   ابحث أولًا في هذه الوثائق وأرشيف القوائم البريدية؛ فقد تجد إجابة سؤالك هناك.
 
-Don't just say "this isn't working" or ask "is this working?". Include as much
-detail as you can about:
+لا تكتفِ بقول «هذا لا يعمل» أو السؤال «هل يعمل هذا؟». اذكر أكبر قدر ممكن من
+التفاصيل حول:
 
-#. What you want to do
-#. What you tried (commands you typed, etc.)
-#. What happened (output of each command, etc.)
+#. ما الذي تريد فعله
+#. ما الذي جربته (الأوامر التي أدخلتها مثلًا)
+#. ما الذي حدث (مخرجات كل أمر مثلًا)
 
-Use Copy/Paste
-==============
+استخدم النسخ واللصق
+===================
 
-Please **copy/paste text** instead of taking a picture or a screenshot of it.
-Text includes source code, terminal commands, and their output.
+يرجى **نسخ النص ولصقه** بدلًا من تصويره أو التقاط لقطة شاشة له. ويشمل النص
+الشيفرة المصدرية وأوامر الطرفية ومخرجاتها.
 
-Doing this makes it easier for people to help you, and also helps other users
-search the archives. Unnecessary screenshots exclude vision impaired
-developers; some are major Zephyr contributors. `Accessibility`_ has been
-recognized as a basic human right by the United Nations.
+يسهل ذلك على الآخرين مساعدتك، كما يتيح للمستخدمين البحث في الأرشيف. وتعيق
+لقطات الشاشة غير الضرورية المطورين ذوي الإعاقة البصرية، ومنهم مساهمون رئيسيون
+في Zephyr. وقد اعترفت الأمم المتحدة بأن `إمكانية الوصول`_ حق أساسي من حقوق
+الإنسان.
 
-When copy/pasting more than 5 lines of computer text into Discord or Github,
-create a snippet using three backticks to delimit the snippet.
+عند لصق أكثر من خمسة أسطر من النص الحاسوبي في Discord أو GitHub، أنشئ مقطعًا
+وضعه بين ثلاث علامات backtick.
 
-.. _Search archives and sign up here: https://lists.zephyrproject.org/g/users
-.. _Discord invite: https://chat.zephyrproject.org
-.. _GitHub issues: https://github.com/zephyrproject-rtos/zephyr/issues
-.. _Accessibility: https://www.w3.org/standards/webdesign/accessibility
+.. _ابحث في الأرشيف واشترك هنا: https://lists.zephyrproject.org/g/users
+.. _دعوة Discord: https://chat.zephyrproject.org
+.. _مشكلات GitHub: https://github.com/zephyrproject-rtos/zephyr/issues
+.. _إمكانية الوصول: https://www.w3.org/standards/webdesign/accessibility

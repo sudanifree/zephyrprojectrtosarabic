@@ -1,13 +1,13 @@
 .. _contribute_to_zephyr:
 
-Contributing to Zephyr
+المساهمة في Zephyr
 ######################
 
-Contributions from the community are the backbone of the project. Whether it is by submitting code,
-improving documentation, or proposing new features, your efforts are highly appreciated. This page
-lists useful resources and guidelines to help you in your contribution journey.
+مساهمات المجتمع هي أساس المشروع. نقدر جهودك، سواء أكانت بإرسال الشيفرة أو
+تحسين الوثائق أو اقتراح ميزات جديدة. تعرض هذه الصفحة موارد وإرشادات مفيدة
+لمساعدتك في رحلة المساهمة.
 
-General Guidelines
+إرشادات عامة
 ==================
 
 .. toctree::
@@ -25,45 +25,40 @@ General Guidelines
 
 
 :ref:`contribute_guidelines`
-   Learn about the overall process and guidelines for contributing to the Zephyr project.
+   تعرّف على آلية المساهمة في مشروع Zephyr وإرشاداتها العامة.
 
-   This page is a mandatory read for first-time contributors as it contains important information on
-   how to ensure your contribution can be considered for inclusion in the project and potentially
-   merged.
+   يجب على المساهمين الجدد قراءة هذه الصفحة؛ فهي تتضمن معلومات مهمة لضمان
+   النظر في مساهمتك وإمكانية دمجها في المشروع.
 
 :ref:`contributor-expectations`
-   This document is another mandatory read that describes the expected behavior of *all*
-   contributors to the project.
+   تصف هذه الوثيقة السلوك المتوقع من *جميع* المساهمين في المشروع، وقراءتها
+   إلزامية.
 
 :ref:`reviewer-expectations`
-   This document is another mandatory read that describes the expected behavior when revieweing
-   contributions to the project.
+   تصف هذه الوثيقة السلوك المتوقع عند مراجعة المساهمات، وقراءتها إلزامية.
 
 :ref:`coding_guidelines`
-   Code contributions are expected to follow a set of coding guidelines to ensure consistency and
-   readability across the code base.
+   ينبغي أن تلتزم مساهمات الشيفرة بإرشادات البرمجة لضمان الاتساق وسهولة القراءة
+   في قاعدة الشيفرة.
 
 :ref:`coding_style`
-   Code contributions are expected to follow a set of style guidelines to ensure consistency and
-   readability across the code base.
+   ينبغي أن تلتزم مساهمات الشيفرة بإرشادات التنسيق لضمان الاتساق وسهولة القراءة
+   في قاعدة الشيفرة.
 
 :ref:`rfcs`
-   Learn when and how to submit RFCs (Request for Comments) for new features and changes to the
-   project.
+   تعرّف على توقيت وطريقة إرسال طلبات التعليق (RFC) للميزات والتغييرات الجديدة.
 
 :ref:`modifying_contributions`
-   Guidelines for modifying contributions made by other developers and how to deal with stale pull
-   requests.
+   إرشادات تعديل مساهمات المطورين الآخرين والتعامل مع طلبات السحب غير النشطة.
 
 :ref:`pr_lifecycle_policy`
-   Policy for keeping open pull requests focused on work that is actively progressing and likely to
-   merge.
+   سياسة لإبقاء طلبات السحب المفتوحة مركزة على الأعمال النشطة والمرجح دمجها.
 
-Documentation
+الوثائق
 =============
 
-The Zephyr project thrives on good documentation. Whether it is as part of a code contribution or
-as a standalone effort, contributing documentation is particularly valuable to the project.
+يعتمد نجاح مشروع Zephyr على جودة وثائقه. وتعد المساهمة في الوثائق ذات قيمة
+كبيرة، سواء أكانت جزءًا من مساهمة برمجية أم جهدًا مستقلًا.
 
 .. toctree::
    :maxdepth: 1
@@ -73,16 +68,16 @@ as a standalone effort, contributing documentation is particularly valuable to t
    documentation/generation.rst
 
 :ref:`doc_guidelines`
-   This page provides some simple guidelines for writing documentation using the reSTructuredText
-   (reST) markup language and Sphinx documentation generator.
+   تقدم هذه الصفحة إرشادات لكتابة الوثائق باستخدام لغة التنسيق reST
+   ومولّد الوثائق Sphinx.
 
 :ref:`zephyr_doc`
-   As you write documentation, it can be helpful to see how it will look when rendered.
+   من المفيد أثناء كتابة الوثائق معاينة شكلها بعد التوليد.
 
-   This page describes how to build the Zephyr documentation locally.
+   تشرح هذه الصفحة طريقة بناء وثائق Zephyr محليًا.
 
 
-Dealing with external components
+التعامل مع المكونات الخارجية
 ================================
 
 .. toctree::
@@ -93,25 +88,24 @@ Dealing with external components
    bin_blobs.rst
 
 :ref:`external-contributions`
-   Basic functionality or features that would make useful addition to Zephyr might be readily
-   available in other open source projects, and it is recommended and encouraged to reuse such code.
-   This page describes in more details when and how to import external source code into Zephyr.
+   قد تتوفر وظائف أو ميزات مفيدة لـ Zephyr في مشاريع مفتوحة المصدر أخرى،
+   ويُشجّع على إعادة استخدام هذه الشيفرة. تشرح هذه الصفحة متى وكيفية استيراد
+   الشيفرة المصدرية الخارجية إلى Zephyr.
 
 :ref:`external-tooling`
-   Similarly, external tooling used during compilation, code analysis, testing or simulation, can be
-   beneficial and is covered in this section.
+   قد تكون الأدوات الخارجية المستخدمة للترجمة أو تحليل الشيفرة أو الاختبار أو
+   المحاكاة مفيدة أيضًا، ويتناولها هذا القسم.
 
 :ref:`bin-blobs`
-   As some functionality might only be made available with the help of executable code distributed
-   in binary form, this page describes the process and guidelines for :ref:`contributing binary
-   blobs <blobs-process>` to the project.
+   قد تتطلب بعض الوظائف شيفرة تنفيذية موزعة بصيغة ثنائية. تشرح هذه الصفحة
+   آلية وإرشادات :ref:`المساهمة بالملفات الثنائية <blobs-process>` في المشروع.
 
-Need help along the way?
+هل تحتاج إلى مساعدة؟
 ========================
 
-If you have questions related to the contribution process, the Zephyr community is here to help.
-You may join our Discord_ channel or use the `Developer Mailing List`_.
+إذا كانت لديك أسئلة عن آلية المساهمة، فإن مجتمع Zephyr مستعد للمساعدة. يمكنك
+الانضمام إلى قناة Discord_ أو استخدام `القائمة البريدية للمطورين`_.
 
 
 .. _Discord: https://chat.zephyrproject.org
-.. _Developer Mailing List: https://lists.zephyrproject.org/g/devel
+.. _القائمة البريدية للمطورين: https://lists.zephyrproject.org/g/devel

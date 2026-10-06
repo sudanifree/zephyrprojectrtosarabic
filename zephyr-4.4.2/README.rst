@@ -15,95 +15,94 @@
    <a href="https://github.com/zephyrproject-rtos/zephyr/actions/workflows/twister.yaml?query=branch%3Amain"><img src="https://github.com/zephyrproject-rtos/zephyr/actions/workflows/twister.yaml/badge.svg?event=push"></a>
 
 
-The Zephyr Project is a scalable real-time operating system (RTOS) supporting
-multiple hardware architectures, optimized for resource constrained devices,
-and built with security in mind.
+مشروع Zephyr هو نظام تشغيل آني (RTOS) قابل للتوسع، يدعم معماريات عتادية
+متعددة، ومحسّن للأجهزة محدودة الموارد، ومصمم مع مراعاة الأمان.
 
-The Zephyr OS is based on a small-footprint kernel designed for use on
-resource-constrained systems: from simple embedded environmental sensors and
-LED wearables to sophisticated smart watches and IoT wireless gateways.
+يعتمد نظام Zephyr على نواة صغيرة الحجم للأنظمة محدودة الموارد، بدءًا من
+المستشعرات البيئية المضمنة والأجهزة القابلة للارتداء المزودة بمصابيح LED،
+وصولًا إلى الساعات الذكية المتقدمة وبوابات إنترنت الأشياء اللاسلكية.
 
-The Zephyr kernel supports multiple architectures, including ARM (Cortex-A,
-Cortex-R, Cortex-M), Intel x86, ARC, Tensilica Xtensa, and RISC-V,
-SPARC, MIPS, and a large number of `supported boards`_.
+تدعم نواة Zephyr معماريات متعددة، منها ARM ‏(Cortex-A وCortex-R وCortex-M)
+وIntel x86 وARC وTensilica Xtensa وRISC-V وSPARC وMIPS، إضافة إلى عدد كبير من
+`اللوحات المدعومة`_.
 
 .. below included in doc/introduction/introduction.rst
 
 
-Getting Started
+البدء
 ***************
 
-Welcome to Zephyr! See the `Introduction to Zephyr`_ for a high-level overview,
-and the documentation's `Getting Started Guide`_ to start developing.
+مرحبًا بك في Zephyr! اقرأ `مقدمة Zephyr`_ للتعرّف على نظرة عامة عن المشروع،
+واتبع `دليل البدء`_ لتهيئة بيئة التطوير والبدء بإنشاء التطبيقات.
 
 .. start_include_here
 
-Community Support
+دعم المجتمع
 *****************
 
-Community support is provided via mailing lists and Discord; see the Resources
-below for details.
+يتوفر دعم المجتمع عبر القوائم البريدية وDiscord. راجع الموارد أدناه لمعرفة
+التفاصيل.
 
 .. _project-resources:
 
-Resources
+الموارد
 *********
 
-Here's a quick summary of resources to help you find your way around:
+فيما يلي مجموعة مختصرة من الموارد التي تساعدك على استكشاف المشروع:
 
-Getting Started
+البدء
 ---------------
 
-  | 📖 `Zephyr Documentation`_
-  | 🚀 `Getting Started Guide`_
-  | 🙋🏽 `Tips when asking for help`_
-  | 💻 `Code samples`_
+  | 📖 `وثائق Zephyr`_
+  | 🚀 `دليل البدء`_
+  | 🙋🏽 `نصائح لطلب المساعدة`_
+  | 💻 `أمثلة الشيفرة`_
 
-Code and Development
+الشيفرة والتطوير
 --------------------
 
-  | 🌐 `Source Code Repository`_
-  | 📦 `Releases`_
-  | 🤝 `Contribution Guide`_
+  | 🌐 `مستودع الشيفرة المصدرية`_
+  | 📦 `الإصدارات`_
+  | 🤝 `دليل المساهمة`_
 
-Community and Support
+المجتمع والدعم
 ---------------------
 
-  | 💬 `Discord Server`_ for real-time community discussions
-  | 📧 `User mailing list (users@lists.zephyrproject.org)`_
-  | 📧 `Developer mailing list (devel@lists.zephyrproject.org)`_
-  | 📬 `Other project mailing lists`_
-  | 📚 `Project Wiki`_
+  | 💬 `خادم Discord`_ للنقاشات المباشرة مع المجتمع
+  | 📧 `القائمة البريدية للمستخدمين (users@lists.zephyrproject.org)`_
+  | 📧 `القائمة البريدية للمطورين (devel@lists.zephyrproject.org)`_
+  | 📬 `القوائم البريدية الأخرى للمشروع`_
+  | 📚 `ويكي المشروع`_
 
-Issue Tracking and Security
+تتبّع المشكلات والأمان
 ---------------------------
 
-  | 🐛 `GitHub Issues`_
-  | 🔒 `Security documentation`_
-  | 🛡️ `Security Advisories Repository`_
-  | ⚠️ Report security vulnerabilities at vulnerabilities@zephyrproject.org
+  | 🐛 `مشكلات GitHub`_
+  | 🔒 `وثائق الأمان`_
+  | 🛡️ `مستودع التنبيهات الأمنية`_
+  | ⚠️ أبلغ عن الثغرات الأمنية عبر vulnerabilities@zephyrproject.org
 
-Additional Resources
+موارد إضافية
 --------------------
-  | 🌐 `Zephyr Project Website`_
-  | 📺 `Zephyr Tech Talks`_
+  | 🌐 `موقع مشروع Zephyr`_
+  | 📺 `محاضرات Zephyr التقنية`_
 
-.. _Zephyr Project Website: https://www.zephyrproject.org
-.. _Discord Server: https://chat.zephyrproject.org
-.. _supported boards: https://docs.zephyrproject.org/latest/boards/index.html
-.. _Zephyr Documentation: https://docs.zephyrproject.org
-.. _Introduction to Zephyr: https://docs.zephyrproject.org/latest/introduction/index.html
-.. _Getting Started Guide: https://docs.zephyrproject.org/latest/develop/getting_started/index.html
-.. _Contribution Guide: https://docs.zephyrproject.org/latest/contribute/index.html
-.. _Source Code Repository: https://github.com/zephyrproject-rtos/zephyr
-.. _GitHub Issues: https://github.com/zephyrproject-rtos/zephyr/issues
-.. _Releases: https://github.com/zephyrproject-rtos/zephyr/releases
-.. _Project Wiki: https://github.com/zephyrproject-rtos/zephyr/wiki
-.. _User mailing list (users@lists.zephyrproject.org): https://lists.zephyrproject.org/g/users
-.. _Developer mailing list (devel@lists.zephyrproject.org): https://lists.zephyrproject.org/g/devel
-.. _Other project mailing lists: https://lists.zephyrproject.org/g/main/subgroups
-.. _Code samples: https://docs.zephyrproject.org/latest/samples/index.html
-.. _Security documentation: https://docs.zephyrproject.org/latest/security/index.html
-.. _Security Advisories Repository: https://github.com/zephyrproject-rtos/zephyr/security
-.. _Tips when asking for help: https://docs.zephyrproject.org/latest/develop/getting_started/index.html#asking-for-help
-.. _Zephyr Tech Talks: https://www.zephyrproject.org/tech-talks
+.. _موقع مشروع Zephyr: https://www.zephyrproject.org
+.. _خادم Discord: https://chat.zephyrproject.org
+.. _اللوحات المدعومة: https://docs.zephyrproject.org/latest/boards/index.html
+.. _وثائق Zephyr: https://docs.zephyrproject.org
+.. _مقدمة Zephyr: https://docs.zephyrproject.org/latest/introduction/index.html
+.. _دليل البدء: https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+.. _دليل المساهمة: https://docs.zephyrproject.org/latest/contribute/index.html
+.. _مستودع الشيفرة المصدرية: https://github.com/zephyrproject-rtos/zephyr
+.. _مشكلات GitHub: https://github.com/zephyrproject-rtos/zephyr/issues
+.. _الإصدارات: https://github.com/zephyrproject-rtos/zephyr/releases
+.. _ويكي المشروع: https://github.com/zephyrproject-rtos/zephyr/wiki
+.. _القائمة البريدية للمستخدمين (users@lists.zephyrproject.org): https://lists.zephyrproject.org/g/users
+.. _القائمة البريدية للمطورين (devel@lists.zephyrproject.org): https://lists.zephyrproject.org/g/devel
+.. _القوائم البريدية الأخرى للمشروع: https://lists.zephyrproject.org/g/main/subgroups
+.. _أمثلة الشيفرة: https://docs.zephyrproject.org/latest/samples/index.html
+.. _وثائق الأمان: https://docs.zephyrproject.org/latest/security/index.html
+.. _مستودع التنبيهات الأمنية: https://github.com/zephyrproject-rtos/zephyr/security
+.. _نصائح لطلب المساعدة: https://docs.zephyrproject.org/latest/develop/getting_started/index.html#asking-for-help
+.. _محاضرات Zephyr التقنية: https://www.zephyrproject.org/tech-talks

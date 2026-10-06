@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: CC-BY-3.0
  */
 
+if (document.documentElement.lang === 'ar') {
+  document.documentElement.dir = 'rtl';
+}
 
 // Handle page scroll and adjust sidebar accordingly.
 

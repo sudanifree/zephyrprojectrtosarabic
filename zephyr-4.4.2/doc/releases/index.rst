@@ -1,24 +1,22 @@
 .. _zephyr_release_notes:
 
-Releases
-########
+الإصدارات
+#########
 
-Zephyr is distributed as source code and build scripts, not as a binary image.
-Use :ref:`west` to :ref:`get the code <get_the_code>` for a specific version,
-and see the `GitHub repository`_ for the full history of tagged releases.
+يُوزع Zephyr على شكل شيفرة مصدرية ونصوص بناء، وليس صورة ثنائية. استخدم
+:ref:`west` للحصول على :ref:`الشيفرة <get_the_code>` لإصدار معين، وراجع
+`مستودع GitHub`_ للاطلاع على سجل الإصدارات الموسومة كاملًا.
 
-The technical documentation for current and past releases is available at
-https://docs.zephyrproject.org/ (use the version selector to select your release
-of interest).
+تتوفر الوثائق التقنية للإصدارات الحالية والسابقة على
+https://docs.zephyrproject.org/ (استخدم محدد الإصدارات لاختيار الإصدار المطلوب).
 
 .. _supported_releases:
 
-Supported Releases
+الإصدارات المدعومة
 ******************
 
-The table below lists all actively supported releases. For most users, the
-recommended starting point is either the **latest stable release** or the
-**current LTS release**.
+يسرد الجدول أدناه جميع الإصدارات التي ما زالت تحظى بالدعم. ونوصي معظم
+المستخدمين بالبدء بـ **أحدث إصدار مستقر** أو **إصدار LTS الحالي**.
 
 .. toctree::
    :hidden:
@@ -32,34 +30,34 @@ recommended starting point is either the **latest stable release** or the
    migration-guide-4.[3-5]
 
 .. note::
-   | The next planned release is **Zephyr 4.5**, targeted for **October 2026**.
-   | The working drafts of the associated :doc:`Release Notes <release-notes-4.5>`
-     and :doc:`Migration Guide <migration-guide-4.5>` are already available.
+   | الإصدار التالي المخطط له هو **Zephyr 4.5**، ومن المستهدف إصداره في **أكتوبر 2026**.
+   | تتوفر بالفعل المسودات الأولية لكل من :doc:`ملاحظات الإصدار <release-notes-4.5>`
+     و:doc:`دليل الترحيل <migration-guide-4.5>`.
 
 .. list-table::
     :header-rows: 1
 
-    * - Release
-      - Release Date
-      - EOL
-      - Status
-      - Supporting Documentation
+    * - الإصدار
+      - تاريخ الإصدار
+      - نهاية الدعم
+      - الحالة
+      - الوثائق
     * - `Zephyr 4.4.0`_
       - 2026-04-14
       - 2027-04-12
-      - Latest stable
+      - أحدث إصدار مستقر
       - * :doc:`Release Notes <release-notes-4.4>`
         * :doc:`Migration Guide <migration-guide-4.4>`
     * - `Zephyr 4.3.0`_
       - 2025-11-14
       - 2026-10-15
-      - Stable
+      - مستقر
       - * :doc:`Release Notes <release-notes-4.3>`
         * :doc:`Migration Guide <migration-guide-4.3>`
     * - `Zephyr 3.7.0 (LTS3)`_
       - 2024-07-26
       - 2029-07-27
-      - Long Term Support
+      - دعم طويل الأمد
       - * :doc:`Release Notes <release-notes-3.7>`
         * :doc:`Migration Guide <migration-guide-3.7>`
 
@@ -73,7 +71,7 @@ Previous LTS releases that have reached end-of-life:
 | `Zephyr 1.14.1 (LTS1)`_ | 2022-01-01    |
 +-------------------------+---------------+
 
-End-of-life releases
+الإصدارات المنتهية
 =====================
 
 .. toctree::
@@ -82,40 +80,37 @@ End-of-life releases
 
    eol_releases
 
-End-of-life releases are no longer maintained and do not receive security fixes.
-The release notes and migration guides for these releases are available
-:ref:`here <eol_releases>`.
+لم تعد الإصدارات المنتهية تخضع للصيانة ولا تتلقى إصلاحات أمنية. تتوفر ملاحظات
+الإصدار وأدلة الترحيل الخاصة بها :ref:`هنا <eol_releases>`.
 
 .. _zephyr_release_cycle:
 
-Release Life Cycle and Maintenance
+دورة حياة الإصدار وصيانته
 **********************************
 
-Major and Maintenance Releases
-==============================
+الإصدارات الرئيسية وإصدارات الصيانة
+===================================
 
-Zephyr delivers major releases on a **six-month cadence**, targeting April and
-October each year. This schedule provides regular, well-tested releases without
-overwhelming users with too-frequent updates, and avoids major holidays across
-geographies.
+يصدر Zephyr إصدارات رئيسية **كل ستة أشهر**، في أبريل وأكتوبر من كل عام. يوفر
+هذا الجدول إصدارات منتظمة ومختبرة جيدًا دون إرباك المستخدمين بالتحديثات
+المتكررة، مع مراعاة العطلات الرئيسية حول العالم.
 
-Maintenance (point) releases are published on an unscheduled basis when enough
-significant fixes have accumulated on a major release branch. Each point release
-goes through a full QA cycle before publishing.
+تُنشر إصدارات الصيانة (النقطية) عند تراكم عدد كافٍ من الإصلاحات المهمة في فرع
+الإصدار الرئيسي، من دون جدول زمني ثابت. ويخضع كل إصدار نقطي لدورة كاملة من
+ضمان الجودة قبل نشره.
 
-Long Term Support and Maintenance
+الدعم والصيانة طويلَا الأمد
 =================================
 
-While stable releases are supported for the duration of 2 release cycles (roughly 1 year),
-some specific ones will be supported for a longer period by the Zephyr Project,
-and are called Long Term Support (LTS) releases.
+تحظى الإصدارات المستقرة بالدعم خلال دورتَي إصدار (نحو عام واحد)، بينما يدعم
+مشروع Zephyr بعض الإصدارات لفترة أطول، وتسمى إصدارات الدعم طويل الأمد (LTS).
 
-A Zephyr :ref:`Long Term Support (LTS) <release_process_lts>` release is
-published every 2.5 to 3 years and is branched and maintained independently from the
-main tree for approximately 5 years after it was released.
+يُنشر إصدار :ref:`الدعم طويل الأمد (LTS) <release_process_lts>` من Zephyr كل
+سنتين ونصف إلى ثلاث سنوات، ويُصان في فرع مستقل عن الفرع الرئيسي لمدة تقارب
+خمس سنوات بعد إصداره.
 
-This offers more stability to project users and leaves more time to
-upgrade to the following LTS release.
+يوفر ذلك استقرارًا أكبر لمستخدمي المشروع ويمنحهم وقتًا أطول للترقية إلى إصدار
+LTS التالي.
 
 
 Transitioning to the new Release Cadence

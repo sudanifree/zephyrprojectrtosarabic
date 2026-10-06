@@ -1,6 +1,6 @@
 .. _hardware_support:
 
-Hardware Support
+دعم العتاد
 ################
 
 .. toctree::

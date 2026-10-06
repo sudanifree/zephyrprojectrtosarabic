@@ -1,6 +1,6 @@
 .. _build_overview:
 
-Build and Configuration Systems
+أنظمة البناء والتهيئة
 ###############################
 
 
